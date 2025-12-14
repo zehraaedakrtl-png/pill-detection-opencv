@@ -51,6 +51,15 @@ image and saved as an output file.
 
 ## Possible Improvements
 
+---
+
+## Possible Improvements
+
+- Shape-based classification (circular vs. capsule-shaped pills)
+- Improved handling of overlapping objects
+- Extension to real-time video processing
+
+
 - Shape-based classification (circular vs. capsule-shaped pills)
 - Improved handling of overlapping objects
 - Extension to real-time video processing
