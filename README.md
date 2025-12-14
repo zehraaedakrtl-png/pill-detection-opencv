@@ -47,12 +47,6 @@ image and saved as an output file.
 ---
 
 
----
-
-## Possible Improvements
-
----
-
 ## Possible Improvements
 
 - Shape-based classification (circular vs. capsule-shaped pills)
@@ -65,5 +59,4 @@ image and saved as an output file.
 - Extension to real-time video processing
 
 
-## Project Structure
 
