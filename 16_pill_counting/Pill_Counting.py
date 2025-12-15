@@ -35,11 +35,20 @@ for cnt in contours:
         pill_count += 1
         cv2.drawContours(image, [cnt], -1, (0,255,0), 2)
 
-print("Detected Pills:", pill_count)
-cv2.imwrite("output/result.jpg", image)
+expected_count = 4
 
-    
- 
+status = "PASS" if pill_count == expected_count else "FAIL"
+
+cv2.putText(
+    image,
+    f"Count: {pill_count} | Status: {status}",
+    (20, 40),
+    cv2.FONT_HERSHEY_SIMPLEX,
+    1,
+    (0, 255, 0) if status == "PASS" else (0, 0, 255),
+    2)
+
+cv2.imwrite("output/result.jpg", image)
 
 
 
