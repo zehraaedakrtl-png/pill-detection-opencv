@@ -1,62 +1,56 @@
 # Pill Detection and Counting with OpenCV
 
-This project implements a classical image processing pipeline to detect
-and count pill-shaped objects in a static image using OpenCV.
+This project presents a classical computer vision–based approach for
+detecting and counting pill-shaped objects in a static image using OpenCV.
 
-The implementation was developed independently as a standalone project
-to apply and reinforce fundamental image processing concepts.
+The implementation is designed as a lightweight prototype inspired by
+visual inspection and counting tasks commonly encountered in
+pharmaceutical production lines.
 
 ---
 
 ## Pipeline Overview
 
-The object detection and counting process consists of the following steps:
+The object detection and counting pipeline consists of the following steps:
 
 - Conversion to grayscale to simplify intensity-based processing
 - Gaussian blur for noise reduction while preserving object boundaries
 - Inverted binary thresholding using Otsu’s method for robust segmentation
-- Contour detection to identify object boundaries
+- Contour detection to identify individual objects
 - Area-based filtering to eliminate noise and non-pill regions
 
 ---
 
 ## Key Design Decisions
 
-- Grayscale conversion was preferred to improve the reliability of
-  thresholding and contour detection.
+- Grayscale conversion was used to improve the robustness of thresholding
+  and contour detection by reducing color-related variability.
 
-- A Gaussian blur with a 5×5 kernel was applied to reduce noise.
-  The sigma value was automatically determined by OpenCV.
+- A Gaussian blur with a 5×5 kernel was applied to suppress noise while
+  maintaining the integrity of object edges. The sigma value was
+  automatically determined by OpenCV.
 
-- Inverted Otsu thresholding was selected due to uniform lighting
-  conditions and a bright background.
+- Inverted Otsu thresholding was selected due to relatively uniform
+  illumination conditions and a bright background.
 
-- Contour area thresholds were selected empirically based on contour
-  statistics to handle noise and minor over-segmentation.
+- Contour area thresholds were determined empirically based on contour
+  statistics to filter out small noise regions and irrelevant large areas.
 
 ---
 
 ## Results
 
-The algorithm correctly detects and counts **4 pill-shaped objects**
+The algorithm successfully detects and counts **4 pill-shaped objects**
 in the provided sample image.
 
-The detected pills are visualized by drawing contours on the original
-image and saved as an output file.
+Detected pills are visualized by drawing contours on the original image.
+The final count and inspection status (PASS / FAIL) are overlaid on the
+output image, which is saved to the output directory.
 
 ---
 
-
 ## Possible Improvements
 
-- Shape-based classification (circular vs. capsule-shaped pills)
-- Improved handling of overlapping objects
-- Extension to real-time video processing
-
-
-- Shape-based classification (circular vs. capsule-shaped pills)
-- Improved handling of overlapping objects
-- Extension to real-time video processing
-
-
-
+- Shape-based classification (e.g., circular vs. capsule-shaped pills)
+- Improved handling of overlapping or touching objects
+- Extension to real-time video or camera-based processing
